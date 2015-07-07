@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     randomModel = new MongoListModel();
     ui->tableView->setModel(randomModel);
+    ui->tableView->resizeColumnsToContents();
 }
 
 MainWindow::~MainWindow()

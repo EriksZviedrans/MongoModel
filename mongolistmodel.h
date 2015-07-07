@@ -5,6 +5,8 @@
 #include <QAbstractListModel>
 #include <QDebug>
 
+#include "mongoitems.h"
+
 #include "mongo/client/dbclient.h"
 #include "mongo/bson/bson.h"
 
@@ -27,7 +29,9 @@ public:
     ~MongoListModel();
 
     int rowCount(const QModelIndex & = QModelIndex()) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex &parent) const Q_DECL_OVERRIDE;
     QVariant data(const QModelIndex &, int) const Q_DECL_OVERRIDE;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const Q_DECL_OVERRIDE;
 
     QString host;
     QString dbName;
@@ -45,9 +49,13 @@ private:
     DBClientConnection* mongoDatabase;
     void connect();
 
-    mutable QList<QString> mongoDataList;
+    mutable QList< MongoItems *> mongoDataList;
+    mutable QStringList mongoHeaderDataList;
+    mutable QList<int> mongoType;
     int mongoRowCount;
     void mongoQueryDown(int, QString value = 0) const;
+    void mongoHeader() const;
+
 
 public slots:
     void searchBy(const QString &value);

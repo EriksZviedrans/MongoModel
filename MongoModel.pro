@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    mongolistmodel.cpp
+    mongolistmodel.cpp \
+    mongoitems.cpp
 
 HEADERS  += mainwindow.h \
-    mongolistmodel.h
+    mongolistmodel.h \
+    mongoitems.h
 
 FORMS    += mainwindow.ui
 
