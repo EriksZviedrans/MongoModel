@@ -2,6 +2,7 @@
 #define MONGOITEMS_H
 
 #include "QDateTime"
+#include "QVariant"
 #include "mongo/bson/bson.h"
 #include "qstring.h"
 using mongo::BSONObj;
@@ -15,7 +16,7 @@ private:
     BSONObj _object;
 public:
     MongoItems (BSONObj object);
-    QString getItem(QString fieldName, int type = 2);
+    QVariant getItem(QString fieldName, int type = 2);
 };
 
 
