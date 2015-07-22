@@ -51,7 +51,6 @@ private:
 
     mutable QList< MongoItems *> mongoDataList;
     mutable QStringList mongoHeaderDataList;
-    mutable QList<int> mongoType;
     int mongoRowCount;
     void mongoQueryDown(int, QString value = 0) const;
     void mongoHeader() const;

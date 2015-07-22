@@ -16,7 +16,7 @@ private:
     BSONObj _object;
 public:
     MongoItems (BSONObj object);
-    QVariant getItem(QString fieldName, int type = 2);
+    QVariant getItem(QString fieldName);
 };
 
 

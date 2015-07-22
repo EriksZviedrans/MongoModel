@@ -43,7 +43,7 @@ QVariant MongoListModel::data(const QModelIndex &index, int role) const
         return QVariant();
 
     if (role == Qt::DisplayRole){ 
-        return mongoDataList.at(row)->getItem(mongoHeaderDataList.at(index.column()), mongoType.at(index.column()));
+        return mongoDataList.at(row)->getItem(mongoHeaderDataList.at(index.column()));
     }
     return QVariant();
 }
@@ -134,7 +134,6 @@ void MongoListModel::mongoHeader() const
         QString key = QString::fromStdString( element.fieldName() );
         if ( key == "_id" ) continue;
         mongoHeaderDataList.append(key);
-        mongoType.append(element.type());
 
     }
 }

@@ -5,9 +5,9 @@ MongoItems::MongoItems(BSONObj object)
     this->_object = object.copy();
 }
 
-QVariant MongoItems::getItem(QString fieldName, int type)
+QVariant MongoItems::getItem(QString fieldName)
 {
-    switch (type) {
+    switch (this->_object.getField(fieldName.toStdString()).type()) {
     case 8:
         return this->_object.getBoolField(fieldName.toStdString());
         break;
